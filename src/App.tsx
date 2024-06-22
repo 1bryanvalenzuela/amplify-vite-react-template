@@ -11,12 +11,13 @@ function App() {
 
   useEffect(() => {
     client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
+      next: (data: { items: any; }) => setTodos([...data.items]),
     });
   }, []);
 
   function createTodo() {
     client.models.Todo.create({ content: window.prompt("Todo content") });
+    client.models.Todo.create({ name: window.prompt("Todo name") });
   }
 
   function deleteTodo(id: string) {
@@ -35,7 +36,7 @@ function App() {
         {todos.map((todo) => (
           <li 
           onClick={() => deleteTodo(todo.id)}
-          key={todo.id}>{todo.content}</li>
+          key={todo.id}>{todo.name}: {todo.content}</li>
         ))}
       </ul>
       <div>
