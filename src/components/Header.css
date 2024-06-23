@@ -1,9 +1,6 @@
 /* src/components/Header.css */
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap');
 
-.header-container {
-}
-
 .header-nav {
 background-image: linear-gradient(white, grey);
 border-bottom: 2px solid rgb(88, 88, 88);

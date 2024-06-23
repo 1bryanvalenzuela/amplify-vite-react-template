@@ -1,4 +1,3 @@
-import React from 'react' 
 import { Authenticator } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
 import { useEffect, useState } from "react";
@@ -8,7 +7,7 @@ import { generateClient } from "aws-amplify/data";
 const client = generateClient<Schema>();
 
 function Home({}) {
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+  const [, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
   const [name, setName] = useState('');
   const [content, setContent] = useState('');
 
@@ -28,11 +27,6 @@ function Home({}) {
   }
 //    client.models.Todo.create({ content: window.prompt("Todo content") });
 //    client.models.Todo.create({ name: window.prompt("Todo name") });
-
-
-  function deleteTodo(id: string) {
-    client.models.Todo.delete({ id })
-  }
 
   return (
     <Authenticator>
