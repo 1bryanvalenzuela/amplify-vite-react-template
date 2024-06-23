@@ -1,0 +1,42 @@
+/* src/components/Header.css */
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap');
+
+.header-container {
+}
+
+.header-nav {
+background-image: linear-gradient(white, grey);
+border-bottom: 2px solid rgb(88, 88, 88);
+color: black;
+font-family: 'Playwrite Nigeria Modern';
+position: fixed;
+top: 0%;
+left: 0;
+width: 100%;
+padding: 5px 12%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+z-index: 100;
+}
+
+.nav-list {
+font-size: 20px;
+font-weight: 530;
+list-style-type: none;
+padding: 0;
+}
+  
+.nav-list li {
+display: inline;
+margin: 0 15px;
+}
+  
+.nav-list a {
+color: black;
+text-decoration: none;
+}
+  
+.nav-list a:hover {
+text-decoration: underline;
+}
