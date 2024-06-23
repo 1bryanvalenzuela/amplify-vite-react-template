@@ -9,16 +9,16 @@ import { generateClient } from "aws-amplify/data";
 const client = generateClient<Schema>();
 
 const Data: React.FC = () => {
-    const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+    const [juegos, setJuego] = useState<Array<Schema["Juego"]["type"]>>([]);
 
     useEffect(() => {
-        client.models.Todo.observeQuery().subscribe({
-          next: (data: { items: any; }) => setTodos([...data.items]),
+        client.models.Juego.observeQuery().subscribe({
+          next: (data: { items: any; }) => setJuego([...data.items]),
         });
       }, []);
 
-      function deleteTodo(id: string) {
-        client.models.Todo.delete({ id })
+      function deleteJuego(id: string) {
+        client.models.Juego.delete({ id })
       }
 
     return (
@@ -29,10 +29,10 @@ const Data: React.FC = () => {
 
     <div className="list">
      <ul>
-        {todos.map((todo) => (
+        {juegos.map((juego) => (
           <li 
-          onClick={() => deleteTodo(todo.id)}
-          key={todo.id}> <strong> {todo.name} </strong><br /> {todo.content}</li>
+          onClick={() => deleteJuego(juego.id)}
+          key={juego.id}> <strong> {juego.name} </strong><br /> {juego.content}</li>
         ))}
       </ul>
       </div>

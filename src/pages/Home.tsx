@@ -7,19 +7,19 @@ import { generateClient } from "aws-amplify/data";
 const client = generateClient<Schema>();
 
 function Home({}) {
-  const [, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+  const [, setComentarios] = useState<Array<Schema["Comentario"]["type"]>>([]);
   const [name, setName] = useState('');
   const [content, setContent] = useState('');
 
   useEffect(() => {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data: { items: any; }) => setTodos([...data.items]),
+    client.models.Comentario.observeQuery().subscribe({
+      next: (data: { items: any; }) => setComentarios([...data.items]),
     });
   }, []);
 
-  function createTodo() {
+  function createComentario() {
     if (name && content) {
-      client.models.Todo.create({ name, content }).then(() => {
+      client.models.Comentario.create({ name, content, likes: 0}).then(() => {
         setName('');
         setContent('');
       });
@@ -51,7 +51,7 @@ function Home({}) {
         value={content} 
         onChange={(e) => setContent(e.target.value)} 
       /> <br />
-      <button onClick={createTodo}>Crear</button>
+      <button onClick={createComentario}>Crear</button>
       </div>
 
       <div>
