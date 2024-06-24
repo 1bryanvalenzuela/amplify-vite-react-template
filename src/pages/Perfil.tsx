@@ -1,6 +1,5 @@
 // Filename - pages/perfil.tsx
-import React from 'react' 
-import { Authenticator } from '@aws-amplify/ui-react'
+import React from 'react'
 import '@aws-amplify/ui-react/styles.css'
 import type { Schema } from "../data/resource";
 import { useEffect, useState } from "react";
