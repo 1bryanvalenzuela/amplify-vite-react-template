@@ -3,7 +3,7 @@
 }
 
 body {
-  background-image: linear-gradient(180deg, rgb(117, 81, 194), rgb(255, 255, 255));
+  background-image: linear-gradient(180deg, rgb(117, 81, 194), rgb(136, 136, 136));
   background-position: center;
   background-repeat: no-repeat;
   margin: 0;
@@ -16,12 +16,12 @@ body {
 }
 
 body .bg {
-  background-image: linear-gradient(180deg, rgb(117, 81, 194), rgb(255, 255, 255));
+  background-image: linear-gradient(180deg, rgb(117, 81, 194), rgb(136, 136, 136));
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
-  position: absolute;
+  position: fixed;
   z-index: -100;
 }
 
@@ -106,4 +106,102 @@ button:focus-visible {
 .list a {
   font-weight: 800;
   text-decoration: none;
+}
+
+.like-icon {
+  color: green;
+  text-align: left;
+}
+
+.dislike-icon {
+  color: red;
+  text-align: left;
+}
+
+.comentario-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1px;
+}
+
+.comentario-icons {
+  margin-right: 20px; /* Espacio entre íconos y texto */
+}
+
+.comentario-icons i {
+  display: block;
+  margin-bottom: 6px; /* Espacio entre los íconos */
+  cursor: pointer;
+}
+
+.comentario-text {
+  flex: 1; /* Hace que el texto ocupe el espacio restante */
+}
+
+.juego-todo{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.juego-div {
+  margin-top: 300px;
+}
+
+.juego-foto{
+  background-color: rgb(56, 56, 56);
+  box-shadow: 5px 5px 10px rgb(68, 68, 68);
+  padding: 30px;
+  border-radius: 8px;
+  align-items: center;
+  margin-bottom: 15px;
+  height: 300px;
+  width: 1000px;
+  float: left;
+  margin-right: 25px;
+  color: white;
+  font-weight: 500;
+}
+
+.juego-list{
+background-color: rgb(54, 54, 54);
+box-shadow: 5px 5px 10px rgb(68, 68, 68);
+padding: 30px;
+border-radius: 8px;
+align-items: center;
+margin-bottom: 15px;
+height: 300px;
+width: 400px;
+float: right;
+color: white;
+font-weight: 500;
+}
+
+.juego-text p{
+}
+
+.juego-todo .list ul {
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  margin: 8px 0;
+  border: 0px solid black;
+  gap: 1px;
+  background-color: transparent;
+  border-radius: 8px;
+  overflow: auto;
+  max-width: 600px;
+  margin-left: 200px;
+}
+
+.juego-todo .list li {
+  background-color: rgb(54, 54, 54);
+  box-shadow: 5px 5px 10px rgb(68, 68, 68);
+  color: white;
+  padding: 6px;
 }
