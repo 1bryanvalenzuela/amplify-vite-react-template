@@ -25,7 +25,7 @@ const Perfil: React.FC = () => {
       return juegos.find((juego) => juego.name === name);
     }
 
-    const name = "League of Legends!"; // Este es el id del comentario que deseas obtener
+    const name = "League of Legends"; // Este es el id del comentario que deseas obtener
     const juego = getJuegoByName(name);
 
     function addlikeComentario(id: string) {
@@ -71,7 +71,8 @@ const Perfil: React.FC = () => {
     {juego ? (<h1>{juego.name}</h1>) : (<h1>Not found</h1>)}
 
     <ul className="juego-foto"> <br />
-    Hola
+    <img className="foto" src="https://cdn2.unrealengine.com/a-beginner-s-guide-to-league-of-legends-teemo-1215x717-dc27844d5953.jpg" alt="League of Legends" 
+    height={200} width={300}/>
 
     </ul>
     <ul className="juego-list">

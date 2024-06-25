@@ -35,7 +35,7 @@ function Home({}) {
     <main>
 
       <div className="afterheader">
-      <h1>Insertá tus datos webon</h1>
+      <h1>Inserte sus datos</h1>
       </div>
 
       <div className="create">
@@ -55,11 +55,7 @@ function Home({}) {
       </div>
 
       <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates">
-          Review next step of this tutorial.
-        </a>
+        Chupatoons Company 🥳
       </div>
 
       <button onClick={signOut}>Sign out</button>

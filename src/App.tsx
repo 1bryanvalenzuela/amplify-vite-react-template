@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Data from "./pages/Data"
 import Home from "./pages/Home"
 import Perfil from "./pages/Perfil"
+import Test from "./pages/Test"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -12,6 +13,7 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path="data" element={<Data />} />
       <Route path="perfil" element={<Perfil />} />
+      <Route path="test" element={<Test />} />
     </Route>
   )
 )
