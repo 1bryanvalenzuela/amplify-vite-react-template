@@ -2,6 +2,12 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+.signo {
+  z-index: -100;
+  padding: 100;
+  background-color: wheat;
+}
+
 body {
   background-image: linear-gradient(180deg, rgb(117, 81, 194), rgb(136, 136, 136));
   background-position: center;

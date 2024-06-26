@@ -2,7 +2,7 @@
 import React from 'react';
 import './Header.css'; // Opcional: para estilos personalizados
 import { Outlet, Link } from 'react-router-dom';
-import { Authenticator } from '@aws-amplify/ui-react'
+import App from '../Test.tsx'
 
 const Header: React.FC = () => {
   return (
@@ -14,9 +14,7 @@ const Header: React.FC = () => {
           <li><Link to="/data">Data</Link></li>
           <li><Link to="/perfil">Perfil</Link></li>
           <li><Link to="/test">Test</Link></li>
-          <li><Authenticator>
-          {({ signOut }) => (<button onClick={signOut}>Sign out</button>)}
-          </Authenticator></li>
+          <li><App /></li>
         </ul>
       </nav>
       <Outlet />

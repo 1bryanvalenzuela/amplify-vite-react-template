@@ -2,10 +2,10 @@ import '@aws-amplify/ui-react/styles.css'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import "boxicons/css/boxicons.min.css";
 import Header from './components/Header';
-import Data from "./pages/Data"
+import Data from "./Data"
 import Home from "./pages/Home"
 import Perfil from "./pages/Perfil"
-import Test from "./pages/Test"
+import Test from "./Test"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
