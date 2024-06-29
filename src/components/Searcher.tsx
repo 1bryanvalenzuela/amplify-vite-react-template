@@ -13,7 +13,7 @@ import "./Searcher.css";
 
 const searchClient = algoliasearch("PAFPT8Q62Z", "5c184f15f30b76527bf5bc272879bd9d");
 
-function Hit({ hit }) {
+function Hit({ hit }: { hit: any }) {
   return (
     <div className="hit-item">
       <p>
