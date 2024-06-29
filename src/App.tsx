@@ -6,6 +6,8 @@ import Data from "./Data"
 import Home from "./pages/Home"
 import Perfil from "./pages/Perfil"
 import Test from "./Test"
+import GamePage from "./data/games"
+import Searcher from "./components/Searcher";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -14,6 +16,8 @@ const router = createBrowserRouter(
       <Route path="data" element={<Data />} />
       <Route path="perfil" element={<Perfil />} />
       <Route path="test" element={<Test />} />
+      <Route path="searcher" element={<Searcher />} />
+      <Route path="game/:name" element={<GamePage />} />
     </Route>
   )
 )

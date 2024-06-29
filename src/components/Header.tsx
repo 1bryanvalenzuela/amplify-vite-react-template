@@ -2,7 +2,7 @@
 import React from 'react';
 import './Header.css'; // Opcional: para estilos personalizados
 import { Outlet, Link } from 'react-router-dom';
-import App from '../Test.tsx'
+import Auth from './Auth'
 
 const Header: React.FC = () => {
   return (
@@ -10,11 +10,12 @@ const Header: React.FC = () => {
     <div className='header-container'>
       <nav className='header-nav'>
         <ul className="nav-list">
-          <li><Link to="/">Home</Link></li>
+          <li><Link to="/">Inicio</Link></li>
           <li><Link to="/data">Data</Link></li>
           <li><Link to="/perfil">Perfil</Link></li>
           <li><Link to="/test">Test</Link></li>
-          <li><App /></li>
+          <li><Link to="/searcher">Searcher</Link></li>
+          <Auth />
         </ul>
       </nav>
       <Outlet />

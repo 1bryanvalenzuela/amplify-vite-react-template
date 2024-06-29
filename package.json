@@ -11,10 +11,16 @@
   },
   "dependencies": {
     "@aws-amplify/ui-react": "^6.1.9",
-    "aws-amplify": "^6.2.0",
+    "@aws-amplify/ui-react-storage": "^3.1.3",
+    "algoliasearch": "^4.24.0",
+    "aws-amplify": "^6.3.8",
     "boxicons": "^2.1.4",
+    "papaparse": "^5.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-instantsearch": "^7.11.4",
+    "react-instantsearch-hooks-web": "^6.47.3",
+    "react-query": "^3.39.3",
     "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
