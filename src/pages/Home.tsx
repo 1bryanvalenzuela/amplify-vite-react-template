@@ -1,31 +1,24 @@
 import '@aws-amplify/ui-react/styles.css'
 import type { Schema } from "../../amplify/data/resource";
-import { useEffect, useState } from "react";
-import { generateClient, SelectionSet } from "aws-amplify/data";
+import { generateClient} from "aws-amplify/data";
 import { Link } from 'react-router-dom';
+import { useQuery } from 'react-query';
 
 const client = generateClient<Schema>();
 
-const selectionSet = ['id', 'name', 'content'] as const; // Asegúrate de que estos campos existen en tu modelo Comentario
-type JuegoWithDetails = SelectionSet<Schema['Comentario']['type'], typeof selectionSet>;
+const fetchJuegos = async () => {
+  const { data } = await client.models.Juego.list();
+  return data;
+};
 
 const Home: React.FC = () => {
-  const [juego, setJuego] = useState<JuegoWithDetails[]>([]);
+  const { data: juegos, error, isLoading } = useQuery('juegos', fetchJuegos, {
+    cacheTime: 1000 * 60 * 5, // 5 minutes
+    staleTime: 1000 * 60 * 1, // 1 minute
+  });
 
-  const fetchJuegos = async () => {
-    try {
-      const { data: JuegosWithDetails } = await client.models.Juego.list({
-        selectionSet,
-      });
-      setJuego(JuegosWithDetails);
-    } catch (error) {
-      console.error("Error fetching data: ", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchJuegos();
-  }, []);
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error loading data</div>;
 
   return (
     <body>
@@ -34,7 +27,7 @@ const Home: React.FC = () => {
       <main>
       <h1>Novedades</h1>
       <div className="grid-container">
-        {juego.map((juego) => (
+        {juegos?.map((juego) => (
           <div className="grid-item" key={juego.id}>
           <div className="comentario-text">
           <Link to={`/game/${juego.name}`}>

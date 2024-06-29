@@ -7,18 +7,18 @@ import Auth from './Auth'
 const Header: React.FC = () => {
   return (
 
-    <div className='header-container'>
-      <nav className='header-nav'>
-        <ul className="nav-list">
-          <li><Link to="/">Inicio</Link></li>
-          <li><Link to="/data">Del-Data</Link></li>
-          <li><Link to="/perfil">Perfil</Link></li>
-          <li><Link to="/add-data">Add-Data</Link></li>
-          <li><Link to="/searcher">Searcher</Link></li>
-          <Auth />
-          <li><Link to="/test">Test</Link></li>
-        </ul>
-      </nav>
+    <div className='all-site'>
+      <header className='header'>
+      <a className='logo'><Link to="/">Inicio</Link></a>
+        <nav className="nav">
+          <a><Link to="/data">Del-Data</Link></a>
+          <a><Link to="/perfil">Perfil</Link></a>
+          <a><Link to="/add-data">Add-Data</Link></a>
+          <a><Link to="/test">Test</Link></a>
+          <a><Link to="/searcher"><i className='bx bx-search'></i></Link></a>
+        </nav>
+      <Auth />
+      </header>
       <Outlet />
     </div>
   );

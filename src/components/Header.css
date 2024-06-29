@@ -1,37 +1,54 @@
 /* src/components/Header.css */
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+NG+Modern:wght@100..400&display=swap');
 
-.header-nav {
-background-image: linear-gradient(white, grey);
+.header {
+background-image: linear-gradient(white, rgb(110, 112, 108));
 position: fixed;
 top: 0%;
 left: 0;
 width: 100%;
-padding: 5px 12%;
+padding: 0 12%;
 display: flex;
-justify-content: center;
+justify-content: space-between;
 align-content: center;
 align-items: center;
 z-index: 100;
+box-shadow: 6px 3px 8px rgb(39, 39, 39);
+transition: 0.3s ease;
 }
 
-.nav-list {
-font-size: 20px;
-font-weight: 530;
-list-style-type: none;
-padding: 0;
-}
-  
-.nav-list li {
-display: inline;
-margin: 0 15px;
-}
-  
-.nav-list a {
-color: black;
+/*.header:hover,
+.header.active {
+box-shadow: 6px 3px 8px rgb(0, 0, 0);
+}*/
+
+.logo a{
+font-size: 25px;
+color: rgb(15, 15, 15);
+font-weight: 600;
+transition: 0.3s ease;
 text-decoration: none;
 }
+
+.logo a:hover,
+.logo a.active {
+color: rgb(80, 20, 100);
+}
+
+.nav {
+font-size: 20px;
+font-weight: 530;
+padding: 8px;
+}
   
-.nav-list a:hover {
-text-decoration: underline;
+.nav a {
+display: inline;
+margin: 0 15px;
+color: rgb(15, 15, 15);
+text-decoration: none;
+transition: 0.3s ease;
+}
+  
+.nav a:hover,
+.nav a.active {
+color: rgb(80, 20, 100);
 }
