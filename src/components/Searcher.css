@@ -1,0 +1,39 @@
+.search-container {
+    position: relative;
+  }
+  
+  .search-box {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .hits-container {
+    position: absolute;
+    top: 130px; /* Ajusta este valor según sea necesario */
+    width: 100%;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    z-index: 1000; /* Asegúrate de que los hits aparezcan sobre otros contenidos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hit-item {
+    border-bottom: 1px solid #797979;
+    padding: 10px;
+  }
+  
+  .hit-item:last-child {
+    border-bottom: none;
+  }
+  
+  .hit-item a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .hit-item a:hover {
+    text-decoration: underline;
+  }
