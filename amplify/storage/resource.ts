@@ -3,8 +3,6 @@ import { type ClientSchema, a, defineData, defineStorage } from "@aws-amplify/ba
 // STORAGE
 export const storage = defineStorage({
   name: 'amplifyTeamDrive',
-  public: true,  // Permite acceso público
-  auth: false,  // No requiere autenticación
 });
 
 // SCHEMAS
