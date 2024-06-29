@@ -3,7 +3,8 @@ import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } 
 import "boxicons/css/boxicons.min.css";
 import Header from './components/Header';
 import Data from "./Data"
-import Home from "./pages/Home"
+import Home from "./pages/Home.tsx"
+import AddData from "./pages/AddData.tsx"
 import Perfil from "./pages/Perfil"
 import Test from "./Test"
 import GamePage from "./data/games"
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
       <Route path="perfil" element={<Perfil />} />
       <Route path="test" element={<Test />} />
       <Route path="searcher" element={<Searcher />} />
+      <Route path="add-data" element={<AddData />} />
       <Route path="game/:name" element={<GamePage />} />
     </Route>
   )
