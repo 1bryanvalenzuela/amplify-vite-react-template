@@ -1,0 +1,30 @@
+.Comentario {
+    border-radius: 0px;
+    background: linear-gradient(rgb(172, 179, 168), rgb(119, 124, 114));
+    box-shadow: 6px 6px 10px rgb(30, 32, 30);
+    padding: 0 0 0 0;
+    display: flex;
+    text-align: justify;
+    margin-bottom: 1em;
+  }
+
+.list {
+    padding: 1em;
+}
+
+.comentario-item{
+    padding-bottom: 1em;
+    border-bottom: 1px solid black;
+}
+
+.comentario-icons{
+    text-align: center;
+}
+
+.comentario-icons bx-like like-icon{
+    color: red;
+}
+
+.comentario-text{
+    color: rgb(0, 0, 0);
+}
