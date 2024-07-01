@@ -17,28 +17,65 @@ const Home: React.FC = () => {
     staleTime: 1000 * 60 * 1, // 1 minute
   });
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error loading data</div>;
+  if (isLoading) return <div></div>;
+  if (error) return <div>Error al cargar.</div>;
+
+  const activityJuegos = juegos?.slice(0, 4);
+
+  const newJuegos = juegos?.slice(0, 4);
+
+  const alltimeJuegos = juegos?.slice(0, 8);
 
   return (
     <body>
       <div className='cuerpo'>
         <aside className='left'></aside>
       <main>
-      <h1>Novedades</h1>
+      <h1>Mayor actividad durante la semana</h1>
       <div className="grid-container">
-        {juegos?.map((juego) => (
+        {activityJuegos?.map((juego) => (
           <div className="grid-item" key={juego.id}>
           <div className="comentario-text">
           <Link to={`/game/${juego.name}`}>
           <img className="foto" src="https://cdn2.unrealengine.com/a-beginner-s-guide-to-league-of-legends-teemo-1215x717-dc27844d5953.jpg" alt="League of Legends" 
     height={120} width={200}/>
           </Link>
+
           </div>
-          
           </div>
         ))}
       </div>
+
+      <h1>Nuevos lanzamientos</h1>
+      <div className="grid-container">
+        {newJuegos?.map((juego) => (
+          <div className="grid-item" key={juego.id}>
+          <div className="comentario-text">
+          <Link to={`/game/${juego.name}`}>
+          <img className="foto" src="https://cdn2.unrealengine.com/a-beginner-s-guide-to-league-of-legends-teemo-1215x717-dc27844d5953.jpg" alt="League of Legends" 
+    height={120} width={200}/>
+          </Link>
+          
+          </div>
+          </div>
+        ))}
+      </div>
+
+      <h1>All-Time</h1>
+      <div className="grid-container">
+        {alltimeJuegos?.map((juego) => (
+          <div className="grid-item" key={juego.id}>
+          <div className="comentario-text">
+          <Link to={`/game/${juego.name}`}>
+          <img className="foto" src="https://cdn2.unrealengine.com/a-beginner-s-guide-to-league-of-legends-teemo-1215x717-dc27844d5953.jpg" alt="League of Legends" 
+    height={120} width={200}/>
+          </Link>
+          
+          </div>
+          </div>
+        ))}
+      </div>
+
       </main>
       <aside className='right'></aside>
       </div>

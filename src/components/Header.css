@@ -1,7 +1,13 @@
 /* src/components/Header.css */
+/* saved codes
+header: linear-gradient(white, rgb(125, 128, 122))
+
+
+*/
 
 .header {
-background-image: linear-gradient(white, rgb(110, 112, 108));
+background: linear-gradient(rgb(255, 255, 255), rgb(151, 156, 145));
+outline: 8px solid rgba(0, 128, 32, 0.6);
 position: fixed;
 top: 0%;
 left: 0;
@@ -12,8 +18,13 @@ justify-content: space-between;
 align-content: center;
 align-items: center;
 z-index: 100;
-box-shadow: 6px 3px 8px rgb(39, 39, 39);
+box-shadow: 6px 3px 8px rgb(150, 150, 150);
 transition: 0.3s ease;
+}
+
+.header.active,
+.header:hover{
+    outline: 8px solid rgba(70, 0, 128, 0.6);
 }
 
 /*.header:hover,
@@ -31,7 +42,7 @@ text-decoration: none;
 
 .logo a:hover,
 .logo a.active {
-color: rgb(80, 20, 100);
+color: rgba(70, 0, 128);
 }
 
 .nav {
@@ -50,5 +61,5 @@ transition: 0.3s ease;
   
 .nav a:hover,
 .nav a.active {
-color: rgb(80, 20, 100);
+color: rgba(70, 0, 128);
 }

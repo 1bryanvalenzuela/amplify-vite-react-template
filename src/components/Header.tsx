@@ -3,6 +3,7 @@ import React from 'react';
 import './Header.css'; // Opcional: para estilos personalizados
 import { Outlet, Link } from 'react-router-dom';
 import Auth from './Auth'
+import Searcher from './Searcher'
 
 const Header: React.FC = () => {
   return (
@@ -15,9 +16,9 @@ const Header: React.FC = () => {
           <a><Link to="/perfil">Perfil</Link></a>
           <a><Link to="/add-data">Add-Data</Link></a>
           <a><Link to="/test">Test</Link></a>
-          <a><Link to="/searcher"><i className='bx bx-search'></i></Link></a>
+          <a><Auth /></a>
         </nav>
-      <Auth />
+      <Searcher />
       </header>
       <Outlet />
     </div>

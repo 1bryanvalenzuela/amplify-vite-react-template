@@ -1,58 +1,57 @@
-import algoliasearch from 'algoliasearch/lite';
-import { useState } from 'react';
-import {
-  InstantSearch,
-  SearchBox,
-  Hits,
-  Highlight,
-  Configure,
-  Snippet,
-} from 'react-instantsearch'; // Importa desde react-instantsearch-dom en lugar de react-instantsearch
+import React, { useState, useEffect } from 'react';
+import { useQuery } from 'react-query';
+import { generateClient } from 'aws-amplify/data';
+import type { Schema } from "../../amplify/data/resource";
 import { Link } from 'react-router-dom';
-import "./Searcher.css";
+import './Searcher.css'
 
-const searchClient = algoliasearch("PAFPT8Q62Z", "5c184f15f30b76527bf5bc272879bd9d");
+const client = generateClient<Schema>();
 
-function Hit({ hit }: { hit: any }) {
+const fetchJuegos = async () => {
+  const { data } = await client.models.Juego.list();
+  return data;
+};
+
+const Searcher: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredJuegos, setFilteredJuegos] = useState<Schema["Juego"]["type"][]>([]);
+  const { data: juegos, error, isLoading } = useQuery('juegos', fetchJuegos);
+
+  useEffect(() => {
+    if (searchTerm.length >= 3) {
+      const results = juegos?.filter(juego =>
+        juego?.name?.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredJuegos(results || []);
+    } else {
+      setFilteredJuegos([]);
+    }
+  }, [searchTerm, juegos]);
+
+  if (isLoading) return <div></div>;
+  if (error) return <div></div>;
+
   return (
-    <div className="hit-item">
-      <p>
-        <Link to={`/game/${hit.name}`}>
-          <Highlight attribute="name" hit={hit} />
-        </Link>
-        <Snippet attribute="name" hit={hit} />
-      </p>
-    </div>
-  );
-}
-
-function Searcher() {
-  const [isSearchBoxActive, setIsSearchBoxActive] = useState(false);
-
-  const handleSearchBoxFocus = () => {
-    setIsSearchBoxActive(true);
-  };
-
-  const handleSearchBoxBlur = () => {
-    setIsSearchBoxActive(false);
-  };
-
-  return (
-    <div className="search-container">
-      <InstantSearch searchClient={searchClient} indexName="Juego" insights>
-        <div className="space">Búsqueda</div>
-        <div className="search-box">
-          <SearchBox onFocus={handleSearchBoxFocus} onBlur={handleSearchBoxBlur} />
-        </div>
-        {isSearchBoxActive && (
-          <div className="hits-container">
-            <Hits hitComponent={Hit} />
-          </div>
+    <div className='search-container'>
+      <input className='search-box'
+        type="text"
+        placeholder="Buscar..."
+        value={searchTerm}
+        onChange={e => setSearchTerm(e.target.value)}
+      />
+      <div>
+        {filteredJuegos.length > 0 ? (
+          filteredJuegos.map(juego => (
+            <div key={juego.id} className='hits-container'>
+              <a className='hit-item'><Link to={`/game/${juego.name}`}>{juego.name}</Link></a>
+            </div>
+          ))
+        ) : (
+          searchTerm.length >= 3 && <div></div>
         )}
-        <Configure hitsPerPage={5} />
-      </InstantSearch>
+      </div>
     </div>
   );
-}
+};
 
 export default Searcher;
